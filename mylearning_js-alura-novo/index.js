@@ -1,5 +1,6 @@
 import {Cliente} from "./Cliente.js";
-import {ContaCorrente} from "./ContaCorrente.js";
+import {ContaCorrente} from "./Conta/ContaCorrente.js";
+import { ContaPoupanca } from './Conta/ContaPoupanca.js';
 
 /// INSTANCIAR CLIENTES
 const cliente1 = new Cliente("Rafael", 12345678900);
@@ -7,11 +8,11 @@ const cliente2 = new Cliente("Andreia", 12345678901);
 
 // INSTANCIAR CONTAS
 const contaCorrenteRafael = new ContaCorrente(1001, cliente1);
-const contaCorrenteAndreia = new ContaCorrente(1002, cliente2);
+const contaCorrenteAndreia = new ContaCorrente(1001, cliente2);
 
 /// MOVIMENTAÇÕES
 contaCorrenteRafael.depositar(500);
-contaCorrenteRafael.saca(100);
+contaCorrenteRafael.sacar(100);
 contaCorrenteRafael.depositar(-500);
 //
 contaCorrenteAndreia.depositar(100);
@@ -30,3 +31,7 @@ console.log(contaCorrenteAndreia.cliente);
 console.log(`Saldo Andreia: ${contaCorrenteAndreia.getSaldo()}`)
 
 console.log(`Numero de Contas: ${ContaCorrente.numeroContas}`);
+
+/// TESTES NOVOS
+const contaPoupanca1 = new ContaPoupanca(50, cliente1, 1001);
+console.log(contaPoupanca1);
